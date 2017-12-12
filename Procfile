@@ -1,0 +1,1 @@
+web: gunicorn drf-tutorial-2.wsgi --log-file -

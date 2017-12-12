@@ -1,0 +1,8 @@
+# includes the base.txt requirement file
+
+-r base.txt
+dj-database-url==0.4.2
+django-storages==1.6.5
+gunicorn==19.7.1
+
+
