@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Application
-    'clean_project',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -43,12 +43,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'clean_project_settings.urls'
+ROOT_URLCONF = 'drf-tutorial-2.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '/clean_project/templates')],
+        'DIRS': [os.path.join(BASE_DIR, '/posts/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'clean_project_settings.wsgi.application'
+WSGI_APPLICATION = 'drf-tutorial-2.wsgi.application'
 
 
 # Password validation
