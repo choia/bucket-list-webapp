@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<div class="col">
 
 {% if post_list %}
 
-
 <div class="list-group">
 {% for post in post_list %}
-  <a href="#" class="list-group-item list-group-item-action list-group-item-light">
+  <a href="{{ post.get_absolute_url }}" class="list-group-item list-group-item-action list-group-item-light">
     <!-- <div class="d-flex w-100 justify-content-between"> -->
       <h5>{{ post.title }}</h5>
       <small>Date added: {{ post.date_created }}</small>
@@ -19,7 +18,7 @@
 {% endfor %}
 </div>
 
-
 {% endif %}
 
+</div>
 {% endblock %}
