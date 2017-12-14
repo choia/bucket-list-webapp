@@ -2,6 +2,7 @@ from django.conf.urls import url
 from . import views
 
 
+
 # Post URL CONF
 urlpatterns = [
 		url(r'^posts/$', views.PostListView.as_view(), name='post-home'),	
