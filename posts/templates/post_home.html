@@ -1,24 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="col">
 
 {% if post_list %}
-
-<div class="list-group">
+<ul>
 {% for post in post_list %}
-  <a href="{{ post.get_absolute_url }}" class="list-group-item list-group-item-action list-group-item-light">
-    <!-- <div class="d-flex w-100 justify-content-between"> -->
-      <h5>{{ post.title }}</h5>
-      <small>{{ post.date_created }}</small><br>
-    <!-- </div> -->
-    <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p> -->
-    
-    <small>{{ post.category_is_blank }}</small>
-  </a>
+  <li>
+    <a href="{{ post.get_absolute_url }}"><h5>{{ post.title }}</h5></a>
+    <small>{{ post.date_created }}</small><br>
+    <small>{{ post.category_is_blank }}</small><br>
+    <a href="{% url 'posts:post-edit' post.pk %}">Update</a>
+  </li><hr>
 {% endfor %}
-</div>
+</ul>
+{% else %}
+  <li>Add your bucketlist!</li>
 
 {% endif %}
 
-</div>
 {% endblock %}
