@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
+# POST URL MAPPING
 urlpatterns += [
-	url(r'', include('posts.urls', namespace='posts')),
+	url(r'^posts/', include('posts.urls', namespace='posts')),
 
 ]
