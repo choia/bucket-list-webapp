@@ -30,9 +30,8 @@ class PostDetailView(DetailView):
 
 class PostCompleteDetailView(UpdateView):
 	model = Post
+	fields = ['title', 'description', 'anecdote', 'category', 'completed']	
 	template_name = 'post_edit.html'
-
-
 
 
 class PostCreate(CreateView):
@@ -49,8 +48,7 @@ class PostEdit(UpdateView):
 	model = Post
 	template_name = 'post_edit.html'
 	fields = ['title', 'description', 'category']
-	# fields = '__all__'
-
+	
 
 class PostDelete(DeleteView):
 	model = Post

@@ -7,10 +7,9 @@
 {% for post in post_list %}
   <li>
     <a href="{{ post.get_absolute_url }}"><h5>{{ post.title }}</h5></a>
-    <small>{{ post.date_created }}</small><br>
+    Posted: {{ post.date_created }}<br>
     <small>{{ post.category_is_blank }}</small><br>
-    <strong>{{ post.date_completed }}</strong><br>
-    <a href="{% url 'posts:post-edit' post.pk %}">Edit</a> |    
+    Completed: <strong>{{ post.date_completed }}</strong><br>
     <a href="{% url 'posts:post-delete' post.pk %}">Delete</a>
   </li><hr>
 {% endfor %}
