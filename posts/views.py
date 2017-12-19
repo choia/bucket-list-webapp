@@ -30,7 +30,7 @@ class PostDetailView(DetailView):
 	template_name = 'post_detail.html'
 
 
-class PostCompleteDetailView(UpdateView):
+class PostCompleteDetailView(LoginRequiredMixin, UpdateView):
 	model = Post
 	fields = ['title', 'description', 'anecdote', 'category', 'completed']	
 	template_name = 'post_edit.html'
@@ -48,13 +48,13 @@ class PostCreate(LoginRequiredMixin, CreateView):
 		return super(PostCreate, self).form_valid(form)
 
 
-class PostEdit(UpdateView):
+class PostEdit(LoginRequiredMixin, UpdateView):
 	model = Post
 	template_name = 'post_edit.html'
 	fields = ['title', 'description', 'category']
 	
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
 	model = Post
 	template_name = 'post_delete.html'
 	success_url = reverse_lazy('posts:post-home')

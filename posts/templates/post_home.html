@@ -9,9 +9,11 @@
     <a href="{{ post.get_absolute_url }}"><h5>{{ post.title }}</h5></a>
     <small>{{ post.date_created }}</small><br>
     <small>{{ post.category_is_blank }}</small><br>
+    {% if user.is_authenticated %}
     <a href="{% url 'posts:post-edit' post.pk %}">Edit</a> |
     <a href="{% url 'posts:post-detail-complete' post.pk %}">Complete</a> |
     <a href="{% url 'posts:post-delete' post.pk %}">Delete</a>
+    {% endif %}
   </li><hr>
 {% endfor %}
 </ul>

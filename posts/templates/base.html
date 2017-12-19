@@ -18,7 +18,9 @@
   {% block sidebar %}
   <ul class="sidebar-nav">
     <li><a href="{% url 'posts:post-home' %}">Home</a></li>
+    {% if user.is_authenticated %}
     <li><a href="{% url 'posts:post-create' %}">Create</a></li>
+    {% endif %}
     <li><a href="{% url 'posts:post-complete' %}">Complete</a></li>
   </ul>
   {% endblock %}

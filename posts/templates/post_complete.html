@@ -10,7 +10,9 @@
     Posted: {{ post.date_created }}<br>
     <small>{{ post.category_is_blank }}</small><br>
     Completed: <strong>{{ post.date_completed }}</strong><br>
+    {% if user.is_authenticated %}
     <a href="{% url 'posts:post-delete' post.pk %}">Delete</a>
+    {% endif %}
   </li><hr>
 {% endfor %}
 </ul>
