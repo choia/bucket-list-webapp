@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
 {% if post_list %}
-
-
 <ul>
 {% for post in post_list %}
   <li>
     <a href="{{ post.get_absolute_url }}"><h5>{{ post.title }}</h5></a>
     <small>{{ post.date_created }}</small><br>
     <small>{{ post.category_is_blank }}</small><br>
-    <a href="{% url 'posts:post-edit' post.pk %}">Edit</a> |
-    <a href="{% url 'posts:post-detail-complete' post.pk %}">Complete</a> |
+    <strong>{{ post.date_completed }}</strong><br>
+    <a href="{% url 'posts:post-edit' post.pk %}">Edit</a> |    
     <a href="{% url 'posts:post-delete' post.pk %}">Delete</a>
   </li><hr>
 {% endfor %}
 </ul>
-{% else %}
-<li>Add your bucketlist!</li>
-
 
 {% endif %}
+
 {% endblock %}
