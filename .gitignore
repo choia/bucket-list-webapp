@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Node/Angular
+node_modules/
+package-lock.json
