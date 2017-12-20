@@ -18,7 +18,7 @@
   {% block sidebar %}
   <ul class="sidebar-nav">
     <li><a href="{% url 'posts:post-home' %}">Home</a></li>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated  %}
     <li><a href="{% url 'posts:post-create' %}">Create</a></li>
     <li><a href="{% url 'profiles:profile-detail' username=user.username %}">Dashboard</a></li>
     <li><a href="{% url 'posts:post-complete' %}">Complete</a></li>
