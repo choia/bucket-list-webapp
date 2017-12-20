@@ -15,6 +15,7 @@ class ProfileDetailView(DetailView):
 
 	def get_context_data(self, **kwargs):		
 		context = super().get_context_data(**kwargs)		
+		
 		bucket_ongoing = Post.objects.filter(completed=False, user=self.request.user).count()
 		bucket_complete = Post.objects.filter(completed=True, user=self.request.user).count()
 		context['bucket_ongoing'] = bucket_ongoing
