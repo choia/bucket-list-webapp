@@ -4,6 +4,16 @@
 
 <ul>
 <li>{{ user.username }}</li>
+<hr>
+<p>How many bucket lists? </p>
+<!-- {% for bucket_count in user.post_set.all %}
+<li>{{ bucket_count.title }}</li>
+<li>
+</li>
+{% endfor %} -->
+
+<li>Bucket Pending: {{ bucket_ongoing }}</li>
+<li>Bucket Complete: {{ bucket_complete }}</li>
 
 </ul>
 
