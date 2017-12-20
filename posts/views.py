@@ -11,6 +11,8 @@ from .forms import PostForm
 
 class PostListView(LoginRequiredMixin, ListView):
 	model = Post
+	context_object_name = 'posts'
+
 	def get_queryset(self):		
 		return Post.objects.filter(completed=False, user=self.request.user)
 
@@ -19,6 +21,7 @@ class PostListView(LoginRequiredMixin, ListView):
 
 class PostCompleteListView(LoginRequiredMixin, ListView):
 	model = Post
+
 	def get_queryset(self):
 		return Post.objects.filter(completed=True, user=self.request.user)
 

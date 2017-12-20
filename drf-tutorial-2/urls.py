@@ -30,6 +30,12 @@ urlpatterns += [
 
 ]
 
+# PROFILE URL MAPPING
+urlpatterns += [
+    url(r'^profiles/', include('profiles.urls', namespace='profiles')),
+
+]
+
 # Use static to add URL mapping to server static files - LOCAL DEV ONLY
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
