@@ -17,7 +17,7 @@ class PostListView(LoginRequiredMixin, ListView):
 	template_name = 'post_home.html'
 
 
-class PostCompleteListView(ListView):
+class PostCompleteListView(LoginRequiredMixin, ListView):
 	model = Post
 	def get_queryset(self):
 		return Post.objects.filter(completed=True)
