@@ -1,0 +1,33 @@
+body {
+	font-family: 'Itim', cursive;
+	font-size: 1.4em;
+	padding-top: 60px;
+
+}
+
+/* SIDEBAR */
+.sidebar {
+	position: fixed;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+}
+
+/* SIDEBAR NAVIGATION LINK */
+.sidebar-nav {
+	display: block;
+    padding: .5rem 2rem;
+
+}
+
+/* TOP NAVIGATION BAR */
+.navbar-custom {
+	border-bottom: 2px solid #eee;
+
+}
+
