@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Itim" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   </head>
   <body>
@@ -38,7 +38,7 @@
 
   <div class="container-fluid">
   <div class="row">
-  <div class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+  <div class="col-sm-4 col-md-2 d-none d-sm-block bg-light sidebar">
   {% block sidebar %}
   <!-- <ul class="sidebar-nav"> -->
   <ul class="nav nav-pills flex-column sidebar-nav">
@@ -53,8 +53,8 @@
   {% endblock %}
   </div>
   </div>
-  <div class="col-md-12">     
-    <main role="main" class="container">
+  <div class="col-md-12 col-md-offset-2">     
+    <main role="main" class="container container-custom">
     {% block content %}{% endblock %}
     </main>
   </div>

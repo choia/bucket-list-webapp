@@ -1,5 +1,5 @@
 body {
-	font-family: 'Itim', cursive;
+	font-family: 'Roboto', sans-serif;
 	font-size: 1.4em;
 	padding-top: 60px;
 
@@ -21,7 +21,7 @@ body {
 /* SIDEBAR NAVIGATION LINK */
 .sidebar-nav {
 	display: block;
-    padding: .5rem 2rem;
+    padding: .5rem 3rem;
 
 }
 
@@ -31,3 +31,12 @@ body {
 
 }
 
+.container-custom {
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
