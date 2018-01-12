@@ -2,7 +2,6 @@
 {% block content %}
 {% if posts %}
 
-
 <ul>
 {% for post in posts %}
   <li>
@@ -21,5 +20,28 @@
 <li>Add your bucketlist!</li>
 
 
+<div class="pinGridWrapper">
+  <h1>CSS Only Responsive Pinterest Style Grid</h1>
+  <div class="pinGrid">
+  
+    <div class="pin">
+      <img src="">
+      <h2>subtitle</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed feugiat consectetur pellentesque. Nam ac elit risus, 
+        ac blandit dui. Duis rutrum porta tortor ut convallis.
+        Duis rutrum porta tortor ut convallis.</p>
+    </div>
+    <div class="pin">
+      <img src="">
+      <h2>subtitle</h2>
+      <p>Donec a fermentum nisi.</p>
+    </div>
+  </div>
+</div>
+
+
+
 {% endif %}
+
 {% endblock %}

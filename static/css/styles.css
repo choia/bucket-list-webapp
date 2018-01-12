@@ -1,27 +1,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
-	font-size: 1.4em;
-	padding-top: 60px;
-
-}
-
-/* SIDEBAR */
-.sidebar {
-	position: fixed;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    border-right: 1px solid #eee;
-}
-
-/* SIDEBAR NAVIGATION LINK */
-.sidebar-nav {
-	display: block;
-    padding: .5rem 3rem;
+	padding-top: 6rem;
+	/*font-size: 1.4em;*/
 
 }
 
@@ -30,13 +10,24 @@ body {
 	border-bottom: 2px solid #eee;
 
 }
+/* TOP NAVIGATION MAIN*/
+#main-nav {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 2px solid #eee;
+	padding-right: 5rem;
+	padding-left: 5rem;
+	z-index: 1000;
+	background-color: #f3f4f7;
+	font-weight: 600;
+}
 
-.container-custom {
-    width: 100%;
-    margin-top: 20px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+#main-nav .navbar-brand {
+	color: #fd5c63;
+	padding-right: 2rem;
+	font-size: 1.5rem;
+}
+
+.main-container {
 
 }

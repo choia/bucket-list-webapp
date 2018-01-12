@@ -13,7 +13,7 @@ class PostListView(LoginRequiredMixin, ListView):
 	context_object_name = 'posts'
 
 	def get_queryset(self):		
-		return Post.objects.filter(completed=False, user=self.request.user)
+		return Post.objects.filter(completed=False)
 
 	template_name = 'post_home.html'
 
