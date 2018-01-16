@@ -1,22 +1,33 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Post
+
+from .models import Post, Category
 from .forms import PostForm
 
 
 
 class PostListView(LoginRequiredMixin, ListView):
-	model = Post
+	model = Post	
 	context_object_name = 'posts'
-
-	def get_queryset(self):		
-		return Post.objects.filter(completed=False)
-
 	template_name = 'post_home.html'
 
+	def get_context_data(self, **kwargs):
+		context = super(PostListView, self).get_context_data(**kwargs)
+		context['categories'] = Category.objects.filter(
+			Q(name__iexact='Travel') |
+ 			Q(name__iexact='Adventure') |
+ 			Q(name__iexact='Learn New Things')).distinct()
+
+		context['posts'] = Post.objects.all()
+		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:6]
+		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:6]
+		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:6]
+
+		return context
 
 class PostCompleteListView(LoginRequiredMixin, ListView):
 	model = Post

@@ -1,9 +1,79 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if posts %}
 
-<ul>
-{% for post in posts %}
+
+
+{% for category in categories %}
+
+<div class="row category-custom">
+  <h3>{{ category }}</h3><br>
+</div>
+  {% if category.name == 'Travel' %}
+  <div class="row post-custom">
+    {% for travel in travels %}
+    <div class="card col-md-2">
+        <div class="card-body">
+          <h4 class="card-title">{{ travel }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if category.name == 'Adventure' %}
+  <div class="row post-custom">
+    {% for adventure in adventures %}
+    <div class="card col-md-2">
+        <div class="card-body">
+          <h4 class="card-title">{{ adventure }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if category.name == 'Learn New Things' %}
+  <div class="row post-custom">
+    {% for lnt in lnts %}
+    <div class="card col-md-2">
+        <div class="card-body">
+          <h4 class="card-title">{{ lnt }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{% endfor %}
+
+<!-- {% for travel in travels %} -->
+
+<!-- <div class="card col-md-2">
+  <div class="card-body">
+    <h4 class="card-title">{{ travel }}</h4>
+    
+  </div>
+</div>
+ -->
+
+<!-- endblock category -->
+<!-- {% endfor %} -->
+
+<!-- div row -->
+
+
+
+
+
+
+
+
+<!-- 
+{% if posts %}
+  <div class="row">
+{% for post in posts %} -->
+
+<!-- <ul>
   <li>
     <a href="{{ post.get_absolute_url }}"><h5>{{ post.title }}</h5></a>
     <small>{{ post.date_created }}</small><br>
@@ -14,34 +84,25 @@
     <a href="{% url 'posts:post-delete' post.pk %}">Delete</a>
     {% endif %}
   </li><hr>
-{% endfor %}
-</ul>
-{% else %}
-<li>Add your bucketlist!</li>
+</ul> -->
 
-
-<div class="pinGridWrapper">
-  <h1>CSS Only Responsive Pinterest Style Grid</h1>
-  <div class="pinGrid">
-  
-    <div class="pin">
-      <img src="">
-      <h2>subtitle</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed feugiat consectetur pellentesque. Nam ac elit risus, 
-        ac blandit dui. Duis rutrum porta tortor ut convallis.
-        Duis rutrum porta tortor ut convallis.</p>
-    </div>
-    <div class="pin">
-      <img src="">
-      <h2>subtitle</h2>
-      <p>Donec a fermentum nisi.</p>
-    </div>
+<!-- <div class="card col-md-2">
+  <div class="card-body">
+    <h4 class="card-title">{{ post.title }}</h4>
+    <p class="card-text">Some example text. Some example text.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
   </div>
 </div>
 
+{% endfor %}
+ -->
 
-
+<!-- 
+{% else %}
+  <li>Add your bucketlist!</li>
 {% endif %}
+ -->
+
 
 {% endblock %}
