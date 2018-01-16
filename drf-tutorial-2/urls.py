@@ -42,3 +42,7 @@ urlpatterns += [
 # Use static to add URL mapping to server static files - LOCAL DEV ONLY
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# Use media to add URL mapping to server media files - LOCAL DEV ONLY
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
