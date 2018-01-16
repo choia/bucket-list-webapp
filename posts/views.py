@@ -23,9 +23,9 @@ class PostListView(LoginRequiredMixin, ListView):
  			Q(name__iexact='Learn New Things')).distinct()
 
 		context['posts'] = Post.objects.all()
-		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:6]
-		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:6]
-		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:6]
+		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:5]
+		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:5]
+		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:5]
 
 		return context
 

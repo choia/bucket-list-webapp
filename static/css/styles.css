@@ -7,8 +7,16 @@ h3 {
 	font-weight: 800;
 	color: #484848;
 	font-size: 1.6rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+h5 {
+	font-weight: 600;
+	color: #484848;
+	font-style: 1.4rem;
+	margin-top: 1rem;
+	margin-left: 0.3rem;
 }
 
 /* TOP NAVIGATION BAR */
@@ -50,16 +58,26 @@ h3 {
 }
 
 .category-custom {
-	padding-top: 2rem;
+	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
 
 /* CARD */
 .card {
 	max-width: 240px;
-	height: 280px;
-	padding-left: .5rem;
-	padding-right: .5rem;
+	height: 240px;
+	padding-left: 0.01rem;
+	padding-right: 0rem;
 	margin-right: 1rem;
 	margin-bottom: 1rem;
+}
+
+.card-body {
+	padding: 0rem;
+}
+
+.card-img-top {
+	width: 100%;
+	height:  8vw;
+	object-fit: cover;
 }

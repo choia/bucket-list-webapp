@@ -21,7 +21,7 @@ class Post(models.Model):
 	date_created 	= models.DateTimeField(auto_now_add=True)
 	date_updated 	= models.DateTimeField(auto_now=True)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
-	image		 	= models.ImageField(upload_to='post/%Y/%m/%d')
+	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True)
 
 
 	class Meta:
