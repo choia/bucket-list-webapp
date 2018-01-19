@@ -1,6 +1,16 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	padding-top: 6rem;
+	color: #484848;
+}
+
+p {
+	font-style: 1.2rem;
+	font-weight: 100;
+}
+
+li {
+	list-style: none;
 }
 
 h3 {
@@ -11,12 +21,26 @@ h3 {
 	margin-right: 5rem;
 }
 
+h4 {
+	font-weight: 800;
+	color: #484848;
+	font-size: 1.8rem;
+}
+
 h5 {
 	font-weight: 600;
 	color: #484848;
 	font-style: 1.4rem;
 	margin-top: 1rem;
 	margin-left: 0.3rem;
+}
+
+a {
+	color: #484848;
+}
+
+a:hover {
+	color: #333232;
 }
 
 /* TOP NAVIGATION BAR */
@@ -66,7 +90,7 @@ h5 {
 .card {
 	max-width: 240px;
 	height: 240px;
-	padding-left: 0.01rem;
+	padding-left: 0rem;
 	padding-right: 0rem;
 	margin-right: 1rem;
 	margin-bottom: 1rem;
@@ -80,4 +104,16 @@ h5 {
 	width: 100%;
 	height:  8vw;
 	object-fit: cover;
+}
+
+.detail-container {
+	margin-left: 25rem;
+	margin-right: 25rem;
+}
+
+.img-fluid {
+	/*max-width: 80%;*/
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	width: 100%;
 }

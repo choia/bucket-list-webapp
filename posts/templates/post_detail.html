@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="row">
+<div class="container detail-container">
+<div class="col-sm-9 offset-sm-1">
+<img src="{{ object.image.url }}" class="img-fluid">
 
-<ul>
-<li>{{ object.title }}</li>
-<li>{{ object.description }}</li>
-<li>Updated: {{ object.date_created|timesince }} ago</li>
+<h4>{{ object.title }}</h4>
+<p>{{ object.description }}</p>
+<hr>
+</div>
+
 {% if object.completed %}
+<ul>
+<li>Updated: {{ object.date_created|timesince }} ago</li>
 <li><strong>Anecdote: {{ object.anectdote }}</strong></li>
 <li><strong>Completed: {{ object.date_completed }}</strong></li>
-{% endif %}
 </ul>
+{% endif %}
 
+</div>
+</div>
 
 {% endblock %}
