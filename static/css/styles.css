@@ -78,7 +78,7 @@ a:hover {
 .post-custom{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 }
 
 .category-custom {

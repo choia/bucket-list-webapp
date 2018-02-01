@@ -26,8 +26,12 @@ class PostListView(LoginRequiredMixin, ListView):
 		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:5]
 		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:5]
 		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:5]
+		qs = self.request.GET.get('q')
+		if qs:
+			context['qs'] = Post.objects.filter(title__icontains=qs)
 
 		return context
+
 
 class PostCompleteListView(LoginRequiredMixin, ListView):
 	model = Post

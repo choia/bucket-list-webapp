@@ -1,7 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% if qs %}
+<div class="row category-custom">
+  <h3>Search Results...</h3>
+</div>
+  <div class="row post-custom">
+    {% for q in qs %}
+    <div class="card col-md-2">
+        {% if q.image %}
+        <img class="card-img-top" src="{{ q.image.url }}">
+        {% else %}
+        <img class="card-img-top">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title"><a href="{{ q.get_absolute_url }}">{{ q }}</a></h4>
+        </div>
+    </div>
+    {% endfor %}
 
+{% else %}
 {% for category in categories %}
 
 <div class="row category-custom">
@@ -61,6 +79,8 @@
 
 {% endfor %}
 
+
+{% endif %}
 
 {% endblock %}
 
