@@ -17,15 +17,15 @@ class PostListView(LoginRequiredMixin, ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostListView, self).get_context_data(**kwargs)
+
 		context['categories'] = Category.objects.filter(
 			Q(name__iexact='Travel') |
  			Q(name__iexact='Adventure') |
  			Q(name__iexact='Learn New Things')).distinct()
 
-		context['posts'] = Post.objects.all()
-		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:5]
-		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:5]
-		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:5]
+		context['travels'] = Post.objects.filter(category__name__iexact='Travel')[:6]
+		context['adventures'] = Post.objects.filter(category__name__iexact='Adventure')[:6]
+		context['lnts'] = Post.objects.filter(category__name__iexact='Learn New Things')[:6]
 		qs = self.request.GET.get('q')
 		if qs:
 			context['qs'] = Post.objects.filter(title__icontains=qs)
@@ -76,3 +76,13 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 	model = Post
 	template_name = 'post_delete.html'
 	success_url = reverse_lazy('posts:post-home')
+
+
+class PostCategoryListView(ListView):
+	model = Post
+	context_object_name = 'categories'
+	template_name = 'post_all.html'
+
+	def get_queryset(self):
+		cat = self.request.GET.get('q')
+		return Post.objects.filter(category__name__iexact=cat)

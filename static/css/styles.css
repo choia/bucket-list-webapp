@@ -17,14 +17,15 @@ h3 {
 	font-weight: 800;
 	color: #484848;
 	font-size: 1.6rem;
-	margin-left: 5rem;
-	margin-right: 5rem;
+	margin-left: 3rem;
+	margin-right: 0.2rem;
 }
 
 h4 {
-	font-weight: 800;
-	color: #484848;
-	font-size: 1.8rem;
+	font-weight: 600;
+	color: #fd5c63;
+	font-size: 1.2rem;
+	margin-top: 0.3rem;
 }
 
 h5 {
@@ -77,13 +78,14 @@ a:hover {
 
 .post-custom{
     display: flex;
-    justify-content: center;
+/*    justify-content: center;*/
     align-items: left;
+    margin-left: 2.2rem;
 }
 
 .category-custom {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
 }
 
 /* CARD */
@@ -92,8 +94,8 @@ a:hover {
 	height: 240px;
 	padding-left: 0rem;
 	padding-right: 0rem;
-	margin-right: 1rem;
-	margin-bottom: 1rem;
+	margin-right: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .card-body {

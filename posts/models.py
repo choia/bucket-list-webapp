@@ -21,7 +21,7 @@ class Post(models.Model):
 	date_created 	= models.DateTimeField(auto_now_add=True)
 	date_updated 	= models.DateTimeField(auto_now=True)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
-	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True, blank=True)
+	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True)
 
 
 	class Meta:
@@ -33,9 +33,3 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('posts:post-detail', kwargs={'pk': self.pk})
 
-	# def category_is_blank(self):
-	# 	if self.category:
-	# 		return self.category
-	# 	else: return ''
-
-		

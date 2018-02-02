@@ -2,6 +2,7 @@
 {% block content %}
 
 {% if qs %}
+
 <div class="row category-custom">
   <h3>Search Results...</h3>
 </div>
@@ -20,12 +21,14 @@
     {% endfor %}
 
 {% else %}
+
 {% for category in categories %}
 
 <div class="row category-custom">
-  <h3>{{ category }}</h3><br>
+  <h3>{{ category }}</h3> <h4><a href="{% url 'posts:post-all' %}?q={{category}}">({{ category.post_set.count }}+)</a></h4>
 </div>
-
+    
+<!-- TRAVEL -->
   {% if category.name == 'Travel' %}
   <div class="row post-custom">
     {% for travel in travels %}
@@ -43,6 +46,7 @@
   </div>
   {% endif %}
 
+<!-- ADVENTURE -->
   {% if category.name == 'Adventure' %}
   <div class="row post-custom">
     {% for adventure in adventures %}
@@ -60,6 +64,7 @@
   </div>
   {% endif %}
 
+<!-- LEARN NEW THINGS --> 
   {% if category.name == 'Learn New Things' %}
   <div class="row post-custom">
     {% for lnt in lnts %}
@@ -77,9 +82,10 @@
   </div>
   {% endif %}
 
+<!-- END FOR CATEGORY IN CATEGORIES -->
 {% endfor %}
 
-
+<!-- END FOR QS -->
 {% endif %}
 
 {% endblock %}
