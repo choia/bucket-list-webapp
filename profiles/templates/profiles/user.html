@@ -4,6 +4,9 @@
 
 <ul>
 <li>{{ user.username }}</li>
+{% for user_info in user_profile %}
+<li>{{ user_info.date_joined }}</li>
+{% endfor %}
 <hr>
 <p>How many bucket lists? </p>
 <!-- {% for bucket_count in user.post_set.all %}

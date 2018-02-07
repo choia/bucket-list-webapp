@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from .views import (
 	PostListView, PostCompleteListView, PostDetailView, PostCompleteDetailView, PostCategoryListView,
-	PostCreate, PostEdit, PostDelete,
+	PostCreate, PostEdit, PostDelete, LogOutView,
 )
 
 
@@ -15,4 +15,5 @@ urlpatterns = [
 		url(r'^(?P<pk>\d+)/edit/$', PostEdit.as_view(), name='post-edit'),
 		url(r'^(?P<pk>\d+)/delete/$', PostDelete.as_view(), name='post-delete'),
 		url(r'^category/$', PostCategoryListView.as_view(), name='post-all'),
+		url(r'^accounts/logout/$', LogOutView.as_view(), name='logout'),
 ]

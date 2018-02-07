@@ -30,7 +30,7 @@ urlpatterns = [
 # POST URL MAPPING
 urlpatterns += [
 	url(r'^posts/', include('posts.urls', namespace='posts')),
-
+    
 ]
 
 # PROFILE URL MAPPING

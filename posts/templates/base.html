@@ -30,12 +30,21 @@
         </li>
       </ul>
       <ul class="navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'profiles:profile-detail' username=user.username %}">Dashboard</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+        </li>        
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="#">Sign Up</a>
         </li>        
         <li class="nav-item">
           <a class="nav-link" href="#">Log In</a>
-        </li>        
+        </li>   
+        {% endif %}     
       </ul>
 <!--       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

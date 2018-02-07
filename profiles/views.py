@@ -4,6 +4,7 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
 from posts.models import Post
+from .models import Profile
 
 
 User = get_user_model()
@@ -16,9 +17,10 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 
 	def get_context_data(self, **kwargs):		
 		context = super().get_context_data(**kwargs)		
-
+		user_profile = Profile.objects.filter(user=self.request.user)
 		bucket_ongoing = Post.objects.filter(completed=False, user=self.request.user).count()
 		bucket_complete = Post.objects.filter(completed=True, user=self.request.user).count()
+		context['user_profile'] = user_profile
 		context['bucket_ongoing'] = bucket_ongoing
 		context['bucket_complete'] = bucket_complete
 		return context

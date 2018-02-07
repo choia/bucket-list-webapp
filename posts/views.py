@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, RedirectView
 
 
 from .models import Post, Category
@@ -86,3 +86,11 @@ class PostCategoryListView(ListView):
 	def get_queryset(self):
 		cat = self.request.GET.get('q')
 		return Post.objects.filter(category__name__iexact=cat)
+
+
+class LogOutView(RedirectView):
+	url = reverse_lazy('posts:post-home')
+
+	def get(self, request, *args, **kwargs):
+		logout(request)
+		return super(LogOutView, self).get(request, *args, **kwargs)
