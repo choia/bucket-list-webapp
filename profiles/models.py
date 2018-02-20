@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
-# from posts.models import Post
+from posts.models import Post
 
 
 
@@ -32,14 +32,15 @@ class Profile(models.Model):
 
 
 class PostInstance(models.Model):
+	owner 			= models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 	completed 		= models.BooleanField(default=False)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
 	complete_story	= models.TextField(max_length=500, blank=True)
-	# post			= models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+	user_post		= models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
 	image 			= models.ImageField(upload_to=post_directory_path, null=True, blank=True)
 
-	# class Meta:
-	# 	ordering = ['post_instance']
+	class Meta:
+		ordering = ['user_post']
 
-	# def __str__(self):
-	# 	return self.post_instance.title
+	def __str__(self):
+		return self.user_post

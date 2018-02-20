@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db import models
 from django.db.models import Q 
-from profiles.models import Profile
 
 
 class Category(models.Model):
@@ -33,7 +32,6 @@ class Post(models.Model):
 	date_updated 	= models.DateTimeField(auto_now=True)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
 	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True, blank=True)
-	user 			= models.ManyToManyField(Profile)
 
 	class Meta:
 		ordering = ['-pk']
