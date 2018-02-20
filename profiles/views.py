@@ -23,6 +23,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 		context['user_profile'] = user_profile
 		context['bucket_ongoing'] = bucket_ongoing
 		context['bucket_complete'] = bucket_complete
+	
 		return context
 
 

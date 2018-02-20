@@ -15,7 +15,7 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title"><a href="{{ q.get_absolute_url }}">{{ q }}</a></h4>
+          <h4 class="card-title"><a href="{{ q.get_absolute_url }}">{{ q }}</a></h4>
         </div>
     </div>
     {% endfor %}
@@ -39,7 +39,8 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title"><a href="{{ travel.get_absolute_url }}">{{ travel }}</a></h4>
+          <h5 class="card-title"><a href="{{ travel.get_absolute_url }}">{{ travel }}</a></h5>
+          <h6 class="card-text"><a href="">Add</a></h6>
         </div>
     </div>
     {% endfor %}
@@ -57,7 +58,7 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title">{{ adventure }}</h4>
+          <h5 class="card-title">{{ adventure }}</h5>
         </div>
     </div>
     {% endfor %}
@@ -75,7 +76,7 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title">{{ lnt }}</h4>
+          <h5 class="card-title">{{ lnt }}</h5>
         </div>
     </div>
     {% endfor %}

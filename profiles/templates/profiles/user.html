@@ -3,22 +3,26 @@
 
 
 <ul>
-<li>{{ user.username }}</li>
+<li>{{ user.get_full_name }}</li>
 {% for user_info in user_profile %}
-<li>{{ user_info.date_joined }}</li>
+  <li>Date Joined: {{ user_info.date_joined }}</li>
+  <li>Active Goals: </li>
+  <li>Complete: </li>
 {% endfor %}
-<hr>
-<p>How many bucket lists? </p>
-<!-- {% for bucket_count in user.post_set.all %}
+</ul>
+
+
+
+<!-- 
+{% for bucket_count in user.post_set.all %}
 <li>{{ bucket_count.title }}</li>
 <li>
 </li>
-{% endfor %} -->
-
+{% endfor %}
 <li>Bucket Pending: {{ bucket_ongoing }}</li>
 <li>Bucket Complete: {{ bucket_complete }}</li>
+ -->
 
-</ul>
 
 
 {% endblock %}

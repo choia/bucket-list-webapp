@@ -1,10 +1,22 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db import models
-from django.db.models import Q
+from django.db.models import Q 
+from profiles.models import Profile
 
 
 class Category(models.Model):
+	"""
+	Learn New Things
+	Life Goals
+	Career
+	Personal Life
+	Health
+	Milestone
+	Adventure
+	Skills
+	Travel
+	"""
 	name = models.CharField(max_length=100, help_text="Category for the Bucketlist (e.g. Travel, Milestone, Skills")
 
 	def __str__(self):
@@ -12,17 +24,16 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-	user 			= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+	# user 			= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 	title 			= models.CharField(max_length=50)
 	description 	= models.TextField(max_length=1000)
-	anecdote		= models.TextField(max_length=2000, null=True, blank=True)
 	category 		= models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 	completed 		= models.BooleanField(default=False)
 	date_created 	= models.DateTimeField(auto_now_add=True)
 	date_updated 	= models.DateTimeField(auto_now=True)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
-	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True)
-
+	image		 	= models.ImageField(upload_to='posts/%Y/%m/%d', null=True, blank=True)
+	user 			= models.ManyToManyField(Profile)
 
 	class Meta:
 		ordering = ['-pk']
