@@ -60,7 +60,6 @@ class PostCreate(LoginRequiredMixin, CreateView):
 	success_url = reverse_lazy('posts:post-home')
 
 	def form_valid(self, form):
-		# form.instance.created_by = self.request.user
 		instance =  form.save(commit=False)
 		instance.user = self.request.user
 		return super(PostCreate, self).form_valid(form)

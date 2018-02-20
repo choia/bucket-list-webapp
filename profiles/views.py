@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, CreateView
 from posts.models import Post
@@ -40,22 +41,25 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 
 
 class PostAddView(LoginRequiredMixin, CreateView):
-	
 
 	template_name = 'profiles/forms.html'
 	form_class = PostInstanceForm
+	success_url = reverse_lazy('posts:post-home')
 
 
 	def get_context_data(self, *args, **kwargs):
 		post_id = get_object_or_404(Post, pk=self.kwargs['pk'])
+
 		context = super().get_context_data(*args, **kwargs)
 		context['post_id'] = post_id
-		context['title'] = 'Create a Goal!'
-
+		context['title'] = 'Create a plan for your Goal!'
+		context['date'] = 'Pick a target date for completion'
 
 		return context
 
 
-	# def get_queryset(self):
-	# 	self.post_id = get_object_or_404(Post, pk=self.kwargs['pk'])
-	# 	return Post.objects.filter(pk=self.post_id)
+	def form_valid(self, form):
+		instance =  form.save(commit=False)
+		instance.owner 		= self.request.user
+		instance.user_post 	= self.post_id
+		return super(PostCreate, self).form_valid(form)

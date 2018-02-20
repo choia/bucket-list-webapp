@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{{ title }}
-{{ post_id }}
-
+<p>{{ title }}
+<p>{{ post_id }}
+<p>{{ date }}
 
 <form action="" method="POST">
     {% csrf_token %}
