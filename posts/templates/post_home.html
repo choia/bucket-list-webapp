@@ -40,7 +40,7 @@
         {% endif %}
         <div class="card-body">
           <h5 class="card-title"><a href="{{ travel.get_absolute_url }}">{{ travel }}</a></h5>
-          <h6 class="card-text"><a href="">Add</a></h6>
+          <h6 class="card-text"><a href="{% url 'profiles:post-add' username=user.username pk=travel.pk %}">Add</a></h6>
         </div>
     </div>
     {% endfor %}

@@ -34,7 +34,9 @@ class Profile(models.Model):
 class PostInstance(models.Model):
 	owner 			= models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 	completed 		= models.BooleanField(default=False)
+	targeted_date	= models.DateField(auto_now=True, null=True)
 	date_completed  = models.DateTimeField(auto_now=True, null=True, blank=True)
+	plan			= models.TextField(max_length=500, blank=True)
 	complete_story	= models.TextField(max_length=500, blank=True)
 	user_post		= models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
 	image 			= models.ImageField(upload_to=post_directory_path, null=True, blank=True)
@@ -43,4 +45,4 @@ class PostInstance(models.Model):
 		ordering = ['user_post']
 
 	def __str__(self):
-		return self.user_post
+		return self.owner.description
