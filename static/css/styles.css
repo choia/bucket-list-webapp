@@ -31,8 +31,16 @@ h4 {
 h5 {
 	font-weight: 600;
 	color: #484848;
-	font-style: 1.4rem;
+	font-size: 1.3rem;
 	margin-top: 1rem;
+	margin-left: 0.3rem;
+}
+
+h6 {
+	font-weight: 600;
+	color: #008489;
+	font-size: 0.84rem;
+	margin-bottom: 0.2rem;
 	margin-left: 0.3rem;
 }
 
@@ -100,6 +108,14 @@ a:hover {
 
 .card-body {
 	padding: 0rem;
+}
+
+.card-title {
+	margin-bottom: 0.3rem;
+}
+
+.card-text a {
+	color: #008489;
 }
 
 .card-img-top {

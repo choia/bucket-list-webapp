@@ -40,7 +40,9 @@
         {% endif %}
         <div class="card-body">
           <h5 class="card-title"><a href="{{ travel.get_absolute_url }}">{{ travel }}</a></h5>
-          <h6 class="card-text"><a href="{% url 'profiles:post-add' username=user.username pk=travel.pk %}">Add</a></h6>
+        <div class="card-text">
+          <h6 class=""><a href="{% url 'profiles:post-add' username=user.username pk=travel.pk %}">ADD</a></h6>
+        </div>
         </div>
     </div>
     {% endfor %}
@@ -58,7 +60,8 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title">{{ adventure }}</h5>
+          <h5 class="card-title"><a href="{{ adventure.get_absolute_url }}">{{ adventure }}</a></h5>
+          <h6 class="card-text"><a href="{% url 'profiles:post-add' username=user.username pk=adventure.pk %}">ADD</a></h6>
         </div>
     </div>
     {% endfor %}
@@ -76,7 +79,8 @@
         <img class="card-img-top">
         {% endif %}
         <div class="card-body">
-          <h5 class="card-title">{{ lnt }}</h5>
+          <h5 class="card-title"><a href="{{ lnt.get_absolute_url }}">{{ lnt }}</a></h5>
+          <h6 class="card-text"><a href="{% url 'profiles:post-add' username=user.username pk=lnt.pk %}">ADD</a></h6>
         </div>
     </div>
     {% endfor %}

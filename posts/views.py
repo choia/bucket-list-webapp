@@ -7,7 +7,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 
 from .models import Post, Category
 from .forms import PostForm
-
+from profiles.models import PostInstance
 
 
 class PostListView(LoginRequiredMixin, ListView):

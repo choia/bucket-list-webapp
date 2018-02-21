@@ -21,11 +21,12 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 		context = super().get_context_data(**kwargs)		
 		user_profile = Profile.objects.filter(user=self.request.user)
 		context['user_profile'] = user_profile
-		# bucket_ongoing = Profile.objects.filter(user=self.request.user).count()
-		# bucket_complete = Profile.objects.filter(user=self.request.user).count()
-		# context['bucket_ongoing'] = bucket_ongoing
-		# context['bucket_complete'] = bucket_complete
 
+		bucket_ongoing = PostInstance.objects.filter(completed=False, owner__user=self.request.user)
+		bucket_complete = PostInstance.objects.filter(completed=True, owner__user=self.request.user)
+		context['bucket_ongoing'] = bucket_ongoing
+		context['bucket_complete'] = bucket_complete
+	
 		return context
 
 
