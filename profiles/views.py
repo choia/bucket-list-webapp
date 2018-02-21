@@ -20,11 +20,11 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 	def get_context_data(self, **kwargs):		
 		context = super().get_context_data(**kwargs)		
 		user_profile = Profile.objects.filter(user=self.request.user)
-		bucket_ongoing = Profile.objects.filter(user=self.request.user).count()
-		bucket_complete = Profile.objects.filter(user=self.request.user).count()
 		context['user_profile'] = user_profile
-		context['bucket_ongoing'] = bucket_ongoing
-		context['bucket_complete'] = bucket_complete
+		# bucket_ongoing = Profile.objects.filter(user=self.request.user).count()
+		# bucket_complete = Profile.objects.filter(user=self.request.user).count()
+		# context['bucket_ongoing'] = bucket_ongoing
+		# context['bucket_complete'] = bucket_complete
 
 		return context
 
@@ -59,7 +59,11 @@ class PostAddView(LoginRequiredMixin, CreateView):
 
 
 	def form_valid(self, form):
-		instance =  form.save(commit=False)
-		instance.owner 		= self.request.user
-		instance.user_post 	= self.post_id
-		return super(PostCreate, self).form_valid(form)
+		instance = form.save(commit=False)		
+		post_id = Post.objects.get(pk=self.kwargs['pk'])
+		user = Profile.objects.get(user=self.request.user)
+		
+		instance.owner = user
+		instance.user_post = post_id		
+		return super(PostAddView, self).form_valid(form)
+

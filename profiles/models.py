@@ -45,4 +45,4 @@ class PostInstance(models.Model):
 		ordering = ['user_post']
 
 	def __str__(self):
-		return self.owner.description
+		return self.user_post.title
