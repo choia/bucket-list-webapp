@@ -46,3 +46,4 @@ class PostInstance(models.Model):
 
 	def __str__(self):
 		return self.user_post.title
+

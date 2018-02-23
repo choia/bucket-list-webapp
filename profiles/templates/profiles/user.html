@@ -17,7 +17,7 @@
 <h4>Active Goals</h4>
 {% for bucket in bucket_ongoing %}
 
-<li>{{ bucket }}</li>
+<li>{{ bucket }} - <a href="{% url 'profiles:post-update' username=user.username pk=bucket.pk %}">Update</a></li>
 
 {% endfor %}
 

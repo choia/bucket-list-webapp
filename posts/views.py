@@ -35,13 +35,12 @@ class PostListView(LoginRequiredMixin, ListView):
 
 class PostCompleteListView(LoginRequiredMixin, ListView):
 	model = Post
+	template_name = 'post_complete.html'
 
 	def get_queryset(self):
 		return Post.objects.filter(completed=True, user=self.request.user)
 
-	template_name = 'post_complete.html'
-
-
+	
 class PostDetailView(DetailView):
 	model = Post
 	context_object_name = 'posts'
@@ -93,3 +92,5 @@ class LogOutView(RedirectView):
 	def get(self, request, *args, **kwargs):
 		logout(request)
 		return super(LogOutView, self).get(request, *args, **kwargs)
+
+		

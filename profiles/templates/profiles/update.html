@@ -3,13 +3,13 @@
 
 <p>{{ title }}
 <p>{{ post }}
-	
+
 <form action="" method="POST">
-    {% csrf_token %}
+    {% csrf_token %}     
     <table>
     {{ form.as_table }}
     </table>
-    <button type='submit'>Save</button>
+    <input type="submit" value="Save" />    
 </form>
 
 {% endblock %}
