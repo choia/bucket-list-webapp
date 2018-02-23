@@ -28,6 +28,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 	
 		return context
 
+
 	def get_object(self):
 		username = self.kwargs.get("username")
 		
@@ -36,6 +37,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 		if username == self.request.user.username:
 			return get_object_or_404(User, username__iexact=username, is_active=True)
 		else: raise Http404
+
 
 
 class PostAddView(LoginRequiredMixin, CreateView):
@@ -53,6 +55,7 @@ class PostAddView(LoginRequiredMixin, CreateView):
 
 		return context
 
+
 	def form_valid(self, form):
 		instance = form.save(commit=False)		
 		post_id = Post.objects.get(pk=self.kwargs['pk'])
@@ -63,11 +66,13 @@ class PostAddView(LoginRequiredMixin, CreateView):
 		return super(PostAddView, self).form_valid(form)
 
 
+
 class PostUpdateView(LoginRequiredMixin, UpdateView):
 	model = PostInstance
 	template_name = 'profiles/update.html'
 	success_url = reverse_lazy('posts:post-home')
 	fields = ['plan', 'image']
+
 
 	def get_context_data(self, *args, **kwargs):
 		post = PostInstance.objects.filter(id=self.kwargs['pk']).first
@@ -80,5 +85,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
 
 
+class PostCompleteView(LoginRequiredMixin, UpdateView):
+	pass
 
 

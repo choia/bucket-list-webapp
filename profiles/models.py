@@ -4,7 +4,6 @@ from django.db import models
 from posts.models import Post
 
 
-
 def user_directory_path(instance, filename):
 	return 'profiles/{}/{}'.format(instance.user.username, filename)
 
@@ -20,7 +19,6 @@ class Profile(models.Model):
 	image 			= models.ImageField(upload_to=user_directory_path, null=True, blank=True)
 	is_active		= models.BooleanField(default=True)
 
-
 	class Meta:
 		ordering = ['user', 'date_joined']		
 
@@ -29,6 +27,7 @@ class Profile(models.Model):
 
 	def get_full_name(self):
 		return self.user.first_name + self.user.last_name
+
 
 
 class PostInstance(models.Model):

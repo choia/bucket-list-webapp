@@ -23,7 +23,6 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-	# user 			= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 	title 			= models.CharField(max_length=50)
 	description 	= models.TextField(max_length=1000)
 	category 		= models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
@@ -41,4 +40,3 @@ class Post(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('posts:post-detail', kwargs={'pk': self.pk})
-
