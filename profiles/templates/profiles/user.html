@@ -18,7 +18,22 @@
 {% for bucket in bucket_ongoing %}
 
 <li>{{ bucket }} - <a href="{% url 'profiles:post-update' username=user.username pk=bucket.pk %}">Update</a>
- - <a href="{% url 'profiles:post-update' username=user.username pk=bucket.pk %}">Complete</a>
+ - <a href="{% url 'profiles:post-complete' username=user.username pk=bucket.pk %}">Complete</a>
+ - <a href="{% url 'profiles:post-delete' username=user.username pk=bucket.pk %}">Delete</a>
+</li>
+
+{% endfor %}
+
+</ul>
+
+<hr>
+
+<ul>
+<h4>Completed Goals</h4>
+{% for bucket in bucket_complete %}
+
+<li>{{ bucket }} - Completed on {{ bucket.date_completed|date:"F d, Y" }}
+ - <a href="{% url 'profiles:post-complete' username=user.username pk=bucket.pk %}">Complete</a>
 </li>
 
 {% endfor %}
